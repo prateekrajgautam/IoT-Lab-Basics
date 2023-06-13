@@ -1,11 +1,13 @@
 #include <Arduino.h>
-// #define LED 2
-#define LED D2
+
+
+#define LED LED_BUILTIN
 
 
 int toggle(int, int);
 
 void setup() {
+  Serial.begin(115200);
   pinMode(LED, OUTPUT);
 
 }
