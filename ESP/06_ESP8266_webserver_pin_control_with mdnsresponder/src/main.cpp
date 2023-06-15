@@ -25,7 +25,7 @@ const char *ssid = "ESP8266_Pass:88888888";
 const char *password = "88888888";
 
 // Define a web server at port 80 for HTTP
-ESP8266WebServer server(80);
+//ESP8266WebServer server(80);
 
 const int ledPin = LED; // an LED is connected to NodeMCU pin D1 (ESP8266 GPIO5) via a 1K Ohm resistor
 
