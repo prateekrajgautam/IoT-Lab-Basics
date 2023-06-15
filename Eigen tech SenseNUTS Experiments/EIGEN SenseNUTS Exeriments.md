@@ -48,10 +48,6 @@ void userCriticalTaskHandler(uint8 critTaskType)
 {}
 ```
 
-
-
-
-
 # Program 2 – Multihop_PanCoord
 
 ```cpp
@@ -152,14 +148,9 @@ void userReceiveDataPacket(uint8* payload,uint8 length,uint16 prevAddr,uint8 lin
 {}
 void userCriticalTaskHandler(uint8 critTaskType)
 {}
-
 ```
 
-
-
 # Program 4 – Light and Temperature
-
-
 
 ```cpp
 #include <jendefs.h>
@@ -204,13 +195,7 @@ void userReceiveDataPacket(uint8* payload,uint8 length,uint16 prevAddr,uint8 lin
 {}
 ```
 
-
-
-
-
 # Program 5 – Light and Temperature (Update Database)
-
-
 
 ```cpp
 #include <jendefs.h>
@@ -260,10 +245,57 @@ void pcInterruptHandler()
 {}
 ```
 
-
-
 # Program 6 – Clock Rate
 
 ```cpp
-
+#include <jendefs.h>
+#include <AppHardwareApi.h>
+#include <AppQueueApi.h>
+#include "clock.h"
+#include "node.h"
+#include "task.h"
+#include "dio.h"
+#define LED_ON 0
+#define LED_OFF 1
+#define CHANGE_RATE 3
+uint8 counter = 0;
+void startNode()
+{
+sendToPcInit();
+uint8 clkRate = getCpuClock(); // get CPU clock rate
+debug(&clkRate,1);
+//set task to switch on the led
+addTask(USER,LED_ON,1*SECOND);
+//set task to change the CPU clock rate
+addTask(USER,CHANGE_RATE,4*SECOND);
+}
+void userTaskHandler(uint8 taskType)
+{
+switch (taskType)
+{
+case LED_ON:
+ledOn();
+addTask(USER,LED_OFF,1*SECOND);
+break;
+case LED_OFF:
+ledOff();
+addTask(USER,LED_ON,1*SECOND);
+break;
+case CHANGE_RATE:
+setCpuClock(MHZ_4); // set CPU clock to 4 MHz
+}
+//debug(&counter,1);
+uint8 clkRate = getCpuClock(); // get CPU clock Rate
+debug(&clkRate,1);
+}
+void userReceiveDataPacket(uint8* payload,uint8 length,uint16 prevAddr,uint8 linkQuality)
+{}
+void wakeFromSleep()
+{
+sendToPcInit();
+// hardware has to be re-initialized if its needed after sleep
+addTask(USER,LED_ON,1*SECOND);
+}
 ```
+
+copyrights EIGEN SenseNUTS
