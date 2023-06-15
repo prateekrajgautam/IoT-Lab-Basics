@@ -1,12 +1,12 @@
 # List of experiments
 
-1. Study [Arduino IDE](https://www.arduino.cc/en/software) and [PlatformIO](https://platformio.org/) [IDE](https://docs.platformio.org/en/latest/home/index.html#platformio-ide) implement led blink program, define program to toggle status of led with function and observe changes in arduino and platformio. Run basic examples from arduino IDE.
+1. Study [Arduino IDE](https://www.arduino.cc/en/software) and [PlatformIO](https://platformio.org/) [IDE](https://docs.platformio.org/en/latest/home/index.html#platformio-ide) implement led blink program, define program to toggle status of led with function and observe changes in Arduino and PlatformIO. Run basic examples from Arduino IDE.
 
 2. Study pin diagram of different boards like **arduino UNO, nano, esp8266, esp32, esp01** and test board by Burning/Flashing/Uploading led blink program.
 
 3. To familiarize with **main and loop function** and basic like **digitalRead, digitalWrite, AnalogRead, AnalogWrite, Serial.begin(), Serial.print()**
 
-4. To install boards and library in Arduino and [platformio](https://docs.platformio.org/en/latest/home/index.html#library-manager). Learn to manage your code and backup in to zip/rar or git/github.
+4. To install boards and library in Arduino and [PlatformIO](https://docs.platformio.org/en/latest/home/index.html#library-manager). Learn to manage your code and backup in to zip/rar or git/github.
 
 5. Program esp8266/esp32 as Access Point Mode (AP)
 
@@ -20,9 +20,9 @@
 
 10. Configure esp as [webserver](https://lastminuteengineers.com/creating-esp32-web-server-arduino-ide/) and toggle led using raw string to store webpage in separate header file.
 
-11. Use [LittleFS](https://github.com/lorol/LITTLEFS) to upload and serve HTML, CSS and JS
+11. Use [LittleFS](https://github.com/lorol/LITTLEFS) to upload and serve HTML, CSS, and JS
 
-12. Show the use of mDNS (ESP8266mDNS) to access esp website using domain name insted of IP
+12. Show the use of mDNS (ESP8266mDNS) to access esp website using domain name instead of IP
 
 13. Explain the use of async webserver using [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer)
 
